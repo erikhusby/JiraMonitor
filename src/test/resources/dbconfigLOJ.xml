@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jira-database-config>
+    <name>defaultDS</name>
+    <delegator-name>default</delegator-name>
+    <database-type>oracle10g</database-type>
+    <!--
+     To allow JavaMelody to capture SQL statistics, the database
+     connection information is to be found in the server.xml
+    -->
+    <!--
+      <jndi-datasource>
+        <jndi-name>java:comp/env/jdbc/JiraDS</jndi-name>
+      </jndi-datasource>
+    -->
+
+
+    <jdbc-datasource>
+        <url>jdbc:oracle:thin:@//vmseqbldr2:1521/sqbldr12</url>
+        <driver-class>oracle.jdbc.OracleDriver</driver-class>
+        <username>labopsjira7</username>
+        <password>l$b0psj1r$</password>
+        <!-- Changed pool-min-size to 20 on 12/1/2016 because that is the
+        value in the Atlassian documentation for JIRA and Oracle. Erik Husby -->
+        <pool-min-size>20</pool-min-size>
+        <!-- Changed pool-max-size to 40 on 12/2/2016. Noticed correlation
+        between the number of connections being used and the use of bulk
+        operations by the SRS team. -->
+        <pool-max-size>40</pool-max-size>
+        <pool-max-wait>30000</pool-max-wait>
+        <pool-max-idle>20</pool-max-idle>
+        <pool-remove-abandoned>true</pool-remove-abandoned>
+        <pool-remove-abandoned-timeout>300</pool-remove-abandoned-timeout>
+
+        <validation-query>select 1 from dual</validation-query>
+        <min-evictable-idle-time-millis>60000</min-evictable-idle-time-millis>
+        <time-between-eviction-runs-millis>300000</time-between-eviction-runs-millis>
+
+        <pool-test-while-idle>true</pool-test-while-idle>
+        <pool-test-on-borrow>false</pool-test-on-borrow>
+
+        <connection-properties>SetBigStringTryClob=true</connection-properties>
+
+    </jdbc-datasource>
+
+</jira-database-config>

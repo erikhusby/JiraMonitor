@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jira-database-config>
+    <name>defaultDS</name>
+    <delegator-name>default</delegator-name>
+    <database-type>oracle10g</database-type>
+    <jdbc-datasource>
+        <url>jdbc:oracle:thin:@seqbldr.broadinstitute.org:1521:seqbldr</url>
+        <driver-class>oracle.jdbc.OracleDriver</driver-class>
+        <username>labopsconfluence_5</username>
+        <password>l@b0psc0nflu3nc3</password>
+        <pool-min-size>20</pool-min-size>
+        <pool-max-size>20</pool-max-size>
+        <pool-max-wait>30000</pool-max-wait>
+        <pool-max-idle>20</pool-max-idle>
+        <pool-remove-abandoned>true</pool-remove-abandoned>
+        <pool-remove-abandoned-timeout>300</pool-remove-abandoned-timeout>
+    </jdbc-datasource>
+</jira-database-config>
